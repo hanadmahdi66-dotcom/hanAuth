@@ -25,7 +25,7 @@ interface GoogleSearchConsoleProps {
 
 export const GoogleSearchConsole: React.FC<GoogleSearchConsoleProps> = ({ onShowToast }) => {
   const [verificationCode, setVerificationCode] = useState<string>(() => {
-    return localStorage.getItem('hanos_gsc_token') || 'google-site-verification-hanos-auth-portal-2026';
+    return localStorage.getItem('hanos_gsc_token') || 'google03f5ea074398a562';
   });
   const [domainUrl, setDomainUrl] = useState<string>('https://hanos.io');
   const [copiedMeta, setCopiedMeta] = useState(false);
