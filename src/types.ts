@@ -20,9 +20,9 @@ export interface ApiKey {
   requests_count?: number;
 }
 
-export type ViewState = 'landing' | 'register' | 'login' | 'dashboard';
+export type ViewState = 'landing' | 'register' | 'login' | 'dashboard' | 'privacy' | 'apps';
 
-export type DashboardTab = 'keys' | 'playground' | 'logs' | 'analytics' | 'docs' | 'settings';
+export type DashboardTab = 'keys' | 'playground' | 'logs' | 'analytics' | 'docs' | 'settings' | 'apps' | 'privacy' | 'seo';
 
 export interface ToastMessage {
   id: string;

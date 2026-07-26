@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { LandingPage } from './components/LandingPage';
 import { RegisterPage } from './components/RegisterPage';
 import { DashboardView } from './components/Dashboard/DashboardView';
+import { PrivacyPolicy } from './components/PrivacyPolicy';
+import { HanOSApps } from './components/HanOSApps';
 import { ToastContainer } from './components/ToastContainer';
 import { ApiKey, ToastMessage, UserAccount, ViewState } from './types';
 
@@ -110,6 +112,18 @@ export default function App() {
         <LandingPage
           onNavigate={(targetView) => setView(targetView)}
           onShowToast={addToast}
+        />
+      )}
+
+      {view === 'privacy' && (
+        <PrivacyPolicy
+          onNavigate={(targetView) => setView(targetView)}
+        />
+      )}
+
+      {view === 'apps' && (
+        <HanOSApps
+          onNavigate={(targetView) => setView(targetView)}
         />
       )}
 

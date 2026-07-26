@@ -54,11 +54,11 @@ export const RegisterPage: React.FC<RegisterPageProps> = ({
     }
 
     setLoading(true);
-    setLoadingStatus('Connecting to hanos-cloud.onrender.com...');
+    setLoadingStatus('Connecting to hanOS Cloud Backend...');
 
     // Timer for cold-start notice
     const timer = setTimeout(() => {
-      setLoadingStatus('Waking up Render backend server (this may take up to 20 seconds)...');
+      setLoadingStatus('Connecting to hanOS API Gateway...');
     }, 3500);
 
     try {
@@ -143,7 +143,7 @@ export const RegisterPage: React.FC<RegisterPageProps> = ({
 
               <h2 className="text-2xl font-bold text-white mb-2">Registration Successful!</h2>
               <p className="text-sm text-slate-300 mb-6">
-                Your account was created and verified on <code className="text-blue-300 bg-slate-950 px-2 py-0.5 rounded font-mono">hanos-cloud.onrender.com</code>.
+                Your account was created and verified on <code className="text-blue-300 bg-slate-950 px-2 py-0.5 rounded font-mono">hanOS Cloud API</code>.
               </p>
 
               {/* User Account Info Card */}
@@ -250,7 +250,7 @@ export const RegisterPage: React.FC<RegisterPageProps> = ({
                       </div>
                       <div className="flex justify-between text-[10px] text-slate-500">
                         <span>Strength: {pwdStrength <= 25 ? 'Weak' : pwdStrength <= 50 ? 'Medium' : 'Strong'}</span>
-                        <span>POST https://hanos-cloud.onrender.com/register</span>
+                        <span>POST /register</span>
                       </div>
                     </div>
                   )}

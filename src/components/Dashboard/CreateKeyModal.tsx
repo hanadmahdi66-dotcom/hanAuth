@@ -103,7 +103,7 @@ export const CreateKeyModal: React.FC<CreateKeyModalProps> = ({
                 </div>
                 <div>
                   <h3 className="text-lg font-bold text-white">API Key Generated!</h3>
-                  <p className="text-xs text-slate-400">Endpoint: https://hanos-cloud.onrender.com/create-api-key</p>
+                  <p className="text-xs text-slate-400">Service: hanOS Cloud Gateway</p>
                 </div>
               </div>
 

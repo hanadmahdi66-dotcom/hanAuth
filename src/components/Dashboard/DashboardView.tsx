@@ -8,6 +8,9 @@ import { UsageAnalytics } from './UsageAnalytics';
 import { AccessLogs } from './AccessLogs';
 import { DeveloperDocs } from './DeveloperDocs';
 import { SettingsTab } from './SettingsTab';
+import { GoogleSearchConsole } from './GoogleSearchConsole';
+import { PrivacyPolicy } from '../PrivacyPolicy';
+import { HanOSApps } from '../HanOSApps';
 import { Footer } from '../Footer';
 import { ApiKey, DashboardTab, UserAccount } from '../../types';
 import { KeyRound, Plus, ShieldCheck, Terminal, AlertCircle } from 'lucide-react';
@@ -20,7 +23,7 @@ interface DashboardViewProps {
   onLogout: () => void;
   onShowToast: (title: string, description?: string, type?: 'success' | 'error' | 'info') => void;
   onUpdateUser: (updatedUser: UserAccount) => void;
-  onNavigateLanding: () => void;
+  onNavigateLanding: (view?: 'landing' | 'register' | 'login' | 'dashboard' | 'privacy' | 'apps') => void;
 }
 
 export const DashboardView: React.FC<DashboardViewProps> = ({
@@ -86,7 +89,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
                       Live Secret API Keys
                     </h2>
                     <p className="text-xs text-slate-300 mt-1 max-w-xl">
-                      Keys provisioned here connect to <code className="text-blue-300 font-mono">https://hanos-cloud.onrender.com</code> for user <span className="font-mono text-emerald-400 font-semibold">{user.user_id}</span>.
+                      Keys provisioned here connect to <code className="text-blue-300 font-mono">hanOS Gateway</code> for user <span className="font-mono text-emerald-400 font-semibold">{user.user_id}</span>.
                     </p>
                   </div>
 
@@ -107,7 +110,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
                     </div>
                     <h3 className="text-base font-bold text-white">No API Keys Found</h3>
                     <p className="text-xs text-slate-400 max-w-md">
-                      Generate your first secret key to authenticate requests with hanos-cloud.onrender.com
+                      Generate your first secret key to authenticate requests with hanOS Gateway
                     </p>
                     <button
                       onClick={() => setIsModalOpen(true)}
@@ -158,7 +161,30 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
               />
             )}
 
-            {/* 6. Settings */}
+            {/* 6. Google Search Console & SEO Center */}
+            {activeTab === 'seo' && (
+              <GoogleSearchConsole onShowToast={onShowToast} />
+            )}
+
+            {/* 7. Apps Tab */}
+            {activeTab === 'apps' && (
+              <HanOSApps onNavigate={(v) => {
+                if (v === 'landing' || v === 'register' || v === 'login') onNavigateLanding(v);
+                else if (v === 'privacy') setActiveTab('privacy');
+                else if (v === 'dashboard') setActiveTab('keys');
+              }} />
+            )}
+
+            {/* 7. Privacy Tab */}
+            {activeTab === 'privacy' && (
+              <PrivacyPolicy onNavigate={(v) => {
+                if (v === 'landing' || v === 'register' || v === 'login') onNavigateLanding(v);
+                else if (v === 'apps') setActiveTab('apps');
+                else if (v === 'dashboard') setActiveTab('keys');
+              }} />
+            )}
+
+            {/* 8. Settings */}
             {activeTab === 'settings' && (
               <SettingsTab
                 user={user}

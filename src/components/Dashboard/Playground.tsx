@@ -125,7 +125,7 @@ export const Playground: React.FC<PlaygroundProps> = ({
             Interactive API Key Tester
           </h2>
           <p className="text-xs text-slate-400 mt-1">
-            Test live authentication headers and endpoints on <code className="text-blue-300 font-mono">https://hanos-cloud.onrender.com</code>
+            Test live authentication headers and endpoints on <code className="text-blue-300 font-mono">hanOS Gateway</code>
           </p>
         </div>
 
@@ -168,9 +168,9 @@ export const Playground: React.FC<PlaygroundProps> = ({
               </select>
               <input
                 type="text"
-                value={`https://hanos-cloud.onrender.com${endpointPath}`}
+                value={`https://api.hanos.io${endpointPath}`}
                 onChange={(e) => {
-                  const val = e.target.value.replace('https://hanos-cloud.onrender.com', '');
+                  const val = e.target.value.replace('https://api.hanos.io', '');
                   setEndpointPath(val || '/create-api-key');
                 }}
                 className="flex-1 px-3 py-2 rounded-xl bg-slate-950 border border-slate-800 text-slate-200 text-xs font-mono focus:outline-none focus:border-blue-500"
@@ -252,7 +252,7 @@ export const Playground: React.FC<PlaygroundProps> = ({
             {loading ? (
               <div className="h-full flex flex-col items-center justify-center text-slate-500 gap-2 my-12">
                 <Loader2 className="w-8 h-8 text-blue-500 animate-spin" />
-                <span>Connecting to hanos-cloud.onrender.com...</span>
+                <span>Connecting to hanOS Gateway...</span>
               </div>
             ) : response ? (
               <div className="space-y-4">

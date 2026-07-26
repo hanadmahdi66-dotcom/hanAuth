@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { HanAuthLogo } from './HanAuthLogo';
 import { HanOSLogo } from './HanOSLogo';
+import { Footer } from './Footer';
 import { 
   KeyRound, 
   ShieldCheck, 
@@ -16,11 +17,16 @@ import {
   CheckCircle2, 
   Layers, 
   Globe2, 
-  Activity 
+  Activity,
+  FolderLock,
+  Calculator,
+  Car,
+  User,
+  Sparkles
 } from 'lucide-react';
 
 interface LandingPageProps {
-  onNavigate: (view: 'landing' | 'register' | 'login' | 'dashboard') => void;
+  onNavigate: (view: 'landing' | 'register' | 'login' | 'dashboard' | 'privacy' | 'apps') => void;
   onShowToast: (title: string, description?: string, type?: 'success' | 'error' | 'info') => void;
 }
 
@@ -29,14 +35,14 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onNavigate, onShowToas
   const [activeTab, setActiveTab] = useState<'curl' | 'node' | 'python'>('curl');
 
   const codeSnippets = {
-    curl: `curl -X POST "https://hanos-cloud.onrender.com/create-api-key" \\
+    curl: `curl -X POST "https://api.hanos.io/create-api-key" \\
   -H "Content-Type: application/json" \\
   -d '{"user_id": "usr_9f8a321"}'`,
     node: `import { HanAuth } from '@hanos/auth';
 
 const hanauth = new HanAuth({
   apiKey: process.env.HANAUTH_KEY,
-  endpoint: 'https://hanos-cloud.onrender.com'
+  endpoint: 'https://api.hanos.io'
 });
 
 const userKey = await hanauth.createKey({
@@ -45,7 +51,7 @@ const userKey = await hanauth.createKey({
     python: `import requests
 
 response = requests.post(
-    "https://hanos-cloud.onrender.com/create-api-key",
+    "https://api.hanos.io/create-api-key",
     json={"user_id": "usr_9f8a321"}
 )
 
@@ -58,6 +64,37 @@ api_key = response.json().get("api_key")`
     onShowToast('Copied to clipboard', 'Code snippet ready to paste in your terminal.', 'success');
     setTimeout(() => setCopiedSnippet(false), 2000);
   };
+
+  const hanOSAppsList = [
+    {
+      name: 'hanFiles',
+      desc: 'Encrypted Cloud File Storage & Document Vault Platform',
+      icon: FolderLock,
+      color: 'from-blue-500 to-cyan-500',
+      tag: 'Storage'
+    },
+    {
+      name: 'hanBusiness',
+      desc: 'Enterprise Double-Entry Financial Ledger & Accounting Suite',
+      icon: Calculator,
+      color: 'from-purple-500 to-indigo-600',
+      tag: 'Ledger'
+    },
+    {
+      name: 'Somaliland Plates',
+      desc: 'Automated Vehicle License Plate Recognition & Registration System',
+      icon: Car,
+      color: 'from-emerald-500 to-teal-600',
+      tag: 'Civic Tech'
+    },
+    {
+      name: 'hanAuth',
+      desc: 'Developer API Key Management & High-Performance Identity Infrastructure',
+      icon: KeyRound,
+      color: 'from-indigo-500 to-blue-600',
+      tag: 'Security'
+    }
+  ];
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col relative overflow-hidden">
@@ -72,12 +109,18 @@ api_key = response.json().get("api_key")`
 
       {/* Top Header Navbar */}
       <header className="relative z-20 w-full max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-        <HanAuthLogo size="md" className="cursor-pointer" />
+        <HanAuthLogo size="md" className="cursor-pointer" onClick={() => onNavigate('landing')} />
 
-        <div className="hidden md:flex items-center gap-8 text-sm text-slate-300 font-medium">
+        <div className="hidden md:flex items-center gap-6 text-sm text-slate-300 font-medium">
           <a href="#features" className="hover:text-blue-400 transition-colors">Features</a>
           <a href="#docs" className="hover:text-blue-400 transition-colors">API Docs</a>
-          <a href="#endpoint" className="hover:text-blue-400 transition-colors">Cloud Endpoint</a>
+          <button onClick={() => onNavigate('apps')} className="hover:text-blue-400 transition-colors font-semibold text-blue-400 flex items-center gap-1.5">
+            <Sparkles className="w-3.5 h-3.5" />
+            <span>hanOS Apps</span>
+          </button>
+          <button onClick={() => onNavigate('privacy')} className="hover:text-blue-400 transition-colors text-slate-400">
+            Privacy Policy
+          </button>
         </div>
 
         <div className="flex items-center gap-3">
@@ -105,7 +148,8 @@ api_key = response.json().get("api_key")`
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/80 border border-slate-800 text-xs font-medium text-slate-300 backdrop-blur-md mb-8 shadow-inner"
+          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/80 border border-slate-800 text-xs font-medium text-slate-300 backdrop-blur-md mb-8 shadow-inner cursor-pointer"
+          onClick={() => onNavigate('apps')}
         >
           <span className="flex h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
           <span className="text-blue-400 font-semibold">hanAuth v2.4</span> • Powered by hanOS
@@ -134,6 +178,17 @@ api_key = response.json().get("api_key")`
         >
           Secure authentication and API key management platform. Scoped secrets, instant verification, and zero-latency access control for modern cloud apps.
         </motion.p>
+
+        {/* Founder Tag in Hero */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5, delay: 0.25 }}
+          className="mt-4 inline-flex items-center gap-2.5 px-4 py-2 rounded-xl bg-slate-900/90 border border-indigo-500/30 text-xs text-slate-300 backdrop-blur-md"
+        >
+          <User className="w-4 h-4 text-indigo-400" />
+          <span>Architected by Founder <strong className="text-white">Hanath Mahdi Updih</strong> of hanOS</span>
+        </motion.div>
 
         {/* Hero CTA buttons */}
         <motion.div
@@ -235,14 +290,66 @@ api_key = response.json().get("api_key")`
           <div id="endpoint" className="px-5 py-3 bg-slate-950/60 border-t border-slate-800/60 flex items-center justify-between text-xs text-slate-400">
             <div className="flex items-center gap-2">
               <Server className="w-4 h-4 text-emerald-400" />
-              <span>Base API: <code className="text-slate-200 font-mono">https://hanos-cloud.onrender.com</code></span>
+              <span>Gateway Service: <code className="text-slate-200 font-mono">hanOS Cloud API</code></span>
             </div>
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-              <span className="text-emerald-400 font-medium">Render Cloud Online</span>
+              <span className="text-emerald-400 font-medium">hanOS Gateway Active</span>
             </div>
           </div>
         </motion.div>
+
+        {/* Section: Applications Created by hanOS */}
+        <div className="mt-28 w-full max-w-6xl">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-950/80 border border-blue-800/60 text-xs text-blue-300 font-semibold mb-3">
+              <Sparkles className="w-3.5 h-3.5" />
+              <span>Products Ecosystem</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-white">Applications Created by hanOS</h2>
+            <p className="text-slate-400 text-sm mt-2 max-w-xl mx-auto">
+              Engineered and led by Founder <strong className="text-white">Hanath Mahdi Updih</strong>. High-performance software applications running on the hanOS cloud infrastructure.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {hanOSAppsList.map((app, idx) => {
+              const Icon = app.icon;
+              return (
+                <div
+                  key={idx}
+                  onClick={() => onNavigate('apps')}
+                  className="p-6 rounded-2xl bg-slate-900/70 border border-slate-800 hover:border-blue-500/50 backdrop-blur-xl text-left transition-all cursor-pointer group flex items-start gap-4"
+                >
+                  <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${app.color} flex items-center justify-center text-white shrink-0 shadow-md group-hover:scale-105 transition-transform`}>
+                    <Icon className="w-6 h-6" />
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex items-center justify-between gap-2 mb-1">
+                      <h3 className="text-lg font-bold text-white group-hover:text-blue-400 transition-colors">{app.name}</h3>
+                      <span className="px-2 py-0.5 rounded-full bg-slate-800 text-[10px] font-semibold text-slate-300 uppercase tracking-wider">
+                        {app.tag}
+                      </span>
+                    </div>
+                    <p className="text-xs text-slate-400 leading-relaxed">
+                      {app.desc}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          <div className="mt-6 text-center">
+            <button
+              onClick={() => onNavigate('apps')}
+              className="text-xs text-blue-400 hover:text-blue-300 font-semibold uppercase tracking-wider inline-flex items-center gap-1.5"
+            >
+              <span>View Full hanOS Suite Showcase</span>
+              <ArrowRight className="w-4 h-4" />
+            </button>
+          </div>
+        </div>
 
         {/* Feature Grid */}
         <div id="features" className="mt-28 w-full">
@@ -282,7 +389,7 @@ api_key = response.json().get("api_key")`
               </div>
               <h3 className="text-lg font-bold text-white mb-2">Sub-10ms Latency</h3>
               <p className="text-sm text-slate-400 leading-relaxed">
-                Powered by hanOS high-performance kernel gateway hosted on Render Cloud, ensuring lightning fast authentication loops.
+                Powered by hanOS high-performance kernel gateway, ensuring lightning fast authentication loops and zero overhead.
               </p>
             </div>
           </div>
@@ -310,6 +417,8 @@ api_key = response.json().get("api_key")`
           </button>
         </div>
       </main>
+
+      <Footer onNavigate={onNavigate} />
     </div>
   );
 };

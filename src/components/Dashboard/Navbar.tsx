@@ -24,6 +24,9 @@ export const Navbar: React.FC<NavbarProps> = ({
     logs: 'Access & Security Logs',
     docs: 'Developer Documentation & SDKs',
     settings: 'Account & Security Settings',
+    seo: 'Google Search Console & SEO Center',
+    apps: 'hanOS Platform Applications',
+    privacy: 'Privacy Policy & Data Security',
   };
 
   return (
@@ -52,7 +55,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         {/* Backend Endpoint Indicator */}
         <div className="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-900/60 border border-slate-800 text-xs text-slate-400">
           <Server className="w-3.5 h-3.5 text-blue-400" />
-          <span className="font-mono text-[11px] text-slate-300">hanos-cloud.onrender.com</span>
+          <span className="font-mono text-[11px] text-slate-300">hanOS Cloud Gateway</span>
         </div>
 
         {/* Create API Key Quick Button */}

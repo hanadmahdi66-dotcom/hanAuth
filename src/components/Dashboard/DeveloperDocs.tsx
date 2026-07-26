@@ -20,7 +20,7 @@ export const DeveloperDocs: React.FC<DeveloperDocsProps> = ({
 
   const snippets = {
     curl: `# 1. Register User Endpoint
-curl -X POST "https://hanos-cloud.onrender.com/register" \\
+curl -X POST "https://api.hanos.io/register" \\
   -H "Content-Type: application/json" \\
   -d '{
     "email": "${user.email}",
@@ -28,7 +28,7 @@ curl -X POST "https://hanos-cloud.onrender.com/register" \\
   }'
 
 # 2. Create API Key Endpoint
-curl -X POST "https://hanos-cloud.onrender.com/create-api-key" \\
+curl -X POST "https://api.hanos.io/create-api-key" \\
   -H "Content-Type: application/json" \\
   -d '{
     "user_id": "${user.user_id}"
@@ -36,7 +36,7 @@ curl -X POST "https://hanos-cloud.onrender.com/create-api-key" \\
     node: `// Node.js Express / Fetch Implementation
 import fetch from 'node-fetch';
 
-const BASE_URL = 'https://hanos-cloud.onrender.com';
+const BASE_URL = 'https://api.hanos.io';
 
 // Generate API Key for User
 async function generateKey(userId) {
@@ -54,7 +54,7 @@ generateKey('${user.user_id}');`,
     python: `# Python Requests Example
 import requests
 
-BASE_URL = "https://hanos-cloud.onrender.com"
+BASE_URL = "https://api.hanos.io"
 
 # Create API Key
 response = requests.post(
@@ -75,7 +75,7 @@ import (
 )
 
 func main() {
-    url := "https://hanos-cloud.onrender.com/create-api-key"
+    url := "https://api.hanos.io/create-api-key"
     payload := map[string]string{"user_id": "${user.user_id}"}
     jsonValue, _ := json.Marshal(payload)
 
@@ -103,7 +103,7 @@ func main() {
           Developer Quickstart &amp; REST API Docs
         </h2>
         <p className="text-xs text-slate-400 mt-1">
-          Complete integration guide for <code className="text-blue-300 font-mono">https://hanos-cloud.onrender.com</code>
+          Complete integration guide for <code className="text-blue-300 font-mono">https://api.hanos.io</code>
         </p>
       </div>
 
@@ -155,7 +155,7 @@ func main() {
           <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
             <div className="flex items-center gap-2">
               <span className="px-2 py-0.5 rounded bg-blue-950 text-blue-400 font-bold">POST</span>
-              <span className="text-white font-bold">https://hanos-cloud.onrender.com/register</span>
+              <span className="text-white font-bold">https://api.hanos.io/register</span>
             </div>
             <p className="font-sans text-slate-400 text-xs">Registers a new developer account.</p>
             <div className="text-slate-400 text-[11px]">
@@ -167,7 +167,7 @@ func main() {
           <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
             <div className="flex items-center gap-2">
               <span className="px-2 py-0.5 rounded bg-blue-950 text-blue-400 font-bold">POST</span>
-              <span className="text-white font-bold">https://hanos-cloud.onrender.com/create-api-key</span>
+              <span className="text-white font-bold">https://api.hanos.io/create-api-key</span>
             </div>
             <p className="font-sans text-slate-400 text-xs">Provisions a new live secret API key connected to user_id.</p>
             <div className="text-slate-400 text-[11px]">

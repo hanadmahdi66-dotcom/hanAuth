@@ -4,7 +4,7 @@ import { HanOSLogo } from './HanOSLogo';
 import { ShieldCheck, Terminal, Cpu, Github, Twitter, Disc as Discord } from 'lucide-react';
 
 interface FooterProps {
-  onNavigate?: (view: 'landing' | 'register' | 'dashboard') => void;
+  onNavigate?: (view: 'landing' | 'register' | 'login' | 'dashboard' | 'privacy' | 'apps') => void;
 }
 
 export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
@@ -25,10 +25,17 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               Secure authentication, secret scoping, and global low-latency API key management platform for modern software engineering teams.
             </p>
 
-            {/* Powered by hanOS Badge */}
-            <div className="mt-2 inline-flex items-center gap-3 p-2.5 rounded-xl bg-slate-900/80 border border-slate-800 backdrop-blur-md w-fit">
-              <span className="text-xs text-slate-400 font-medium">Powered by</span>
-              <HanOSLogo size="md" variant="full" />
+            <div className="flex flex-wrap items-center gap-3">
+              {/* Powered by hanOS Badge */}
+              <div className="inline-flex items-center gap-2 p-2 px-3 rounded-xl bg-slate-900/80 border border-slate-800 backdrop-blur-md w-fit text-xs text-slate-300">
+                <span className="text-slate-400 font-medium">Powered by</span>
+                <HanOSLogo size="md" variant="full" />
+              </div>
+
+              {/* Founder Tag */}
+              <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-indigo-950/60 border border-indigo-800/50 text-indigo-300 text-xs font-medium">
+                <span>Founder: <strong className="text-white">Hanath Mahdi Updih</strong></span>
+              </div>
             </div>
           </div>
 
@@ -47,30 +54,35 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             >
               API Dashboard
             </button>
-            <a href="#features" className="text-slate-400 hover:text-blue-400 transition-colors">
-              Security Features
-            </a>
-            <a href="#playground" className="text-slate-400 hover:text-blue-400 transition-colors">
-              Interactive Tester
-            </a>
+            <button 
+              onClick={() => onNavigate?.('apps')} 
+              className="text-left text-slate-400 hover:text-blue-400 transition-colors font-semibold text-blue-400 flex items-center gap-1"
+            >
+              <span>hanOS Suite Apps</span>
+            </button>
+            <button 
+              onClick={() => onNavigate?.('privacy')} 
+              className="text-left text-slate-400 hover:text-blue-400 transition-colors"
+            >
+              Privacy Policy
+            </button>
           </div>
 
-          {/* Links Column 2 */}
+          {/* Links Column 2: hanOS Apps Suite */}
           <div className="md:col-span-2 flex flex-col gap-3 text-sm">
-            <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-200">Developers</h4>
-            <a href="#docs" className="text-slate-400 hover:text-blue-400 transition-colors">
-              API Reference
-            </a>
-            <a href="https://hanos-cloud.onrender.com" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-blue-400 transition-colors">
-              Backend Endpoint
-            </a>
-            <a href="#status" className="text-slate-400 hover:text-blue-400 transition-colors flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-              API Status
-            </a>
-            <a href="#sdk" className="text-slate-400 hover:text-blue-400 transition-colors">
-              SDK Libraries
-            </a>
+            <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-200">hanOS Apps</h4>
+            <button onClick={() => onNavigate?.('apps')} className="text-left text-slate-400 hover:text-blue-400 transition-colors">
+              1. hanFiles
+            </button>
+            <button onClick={() => onNavigate?.('apps')} className="text-left text-slate-400 hover:text-blue-400 transition-colors">
+              2. hanBusiness
+            </button>
+            <button onClick={() => onNavigate?.('apps')} className="text-left text-slate-400 hover:text-blue-400 transition-colors">
+              3. Somaliland Plates
+            </button>
+            <button onClick={() => onNavigate?.('apps')} className="text-left text-slate-400 hover:text-blue-400 transition-colors">
+              4. hanAuth
+            </button>
           </div>
 
           {/* Infrastructure Column */}
@@ -83,11 +95,11 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               </div>
               <div className="flex items-center gap-2">
                 <Terminal className="w-4 h-4 text-blue-400 shrink-0" />
-                <span>Render Cloud Services</span>
+                <span>hanOS Cloud Gateway</span>
               </div>
               <div className="flex items-center gap-2">
                 <Cpu className="w-4 h-4 text-purple-400 shrink-0" />
-                <span>hanOS Kernel Gateway</span>
+                <span>Engineered by Hanath Mahdi Updih</span>
               </div>
             </div>
           </div>
@@ -97,14 +109,20 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
         <div className="mt-12 pt-8 border-t border-slate-800/60 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <div className="flex items-center gap-4">
             <span>© {new Date().getFullYear()} hanAuth by hanOS. All rights reserved.</span>
+            <button onClick={() => onNavigate?.('privacy')} className="hover:text-slate-300 underline">
+              Privacy &amp; Policy
+            </button>
           </div>
 
           {/* hanOS Banner Credit */}
           <div className="flex items-center gap-3">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-950/40 border border-blue-800/40 text-blue-300 font-medium">
-              <span className="w-1.5 h-1.5 rounded-full bg-blue-400" />
-              Powered by hanOS
-            </span>
+            <button 
+              onClick={() => onNavigate?.('apps')}
+              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-950/40 border border-blue-800/40 text-blue-300 font-medium hover:bg-blue-900/50 transition-colors"
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
+              Powered by hanOS Suite
+            </button>
             <div className="flex items-center gap-3 text-slate-400">
               <Github className="w-4 h-4 hover:text-white cursor-pointer transition-colors" />
               <Twitter className="w-4 h-4 hover:text-white cursor-pointer transition-colors" />
