@@ -15,46 +15,111 @@
     <!-- Google Search Console Verification Meta Tag -->
     <meta name="google-site-verification" content="google03f5ea074398a562" id="google-search-console-verification" />
 
-    <!-- Open Graph / Facebook -->
+    <!-- Open Graph / Facebook / Google Rich Cards -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://hanos.io" />
-    <meta property="og:title" content="hanAuth | Developer API Key &amp; Identity Infrastructure" />
-    <meta property="og:description" content="Secure API key management platform with sub-10ms gateway latency and zero-knowledge secret key hashing." />
+    <meta property="og:title" content="hanAuth security and managment API keys" />
+    <meta property="og:description" content="High-performance developer identity gateway, API key management, zero-knowledge secret hashing, and instant key revocation platform engineered by Hanath Mahdi Updih." />
     <meta property="og:site_name" content="hanOS" />
+    <meta property="og:image" content="https://hanos.io/assets/aistudio/Screenshot_20261022_231441_Photos_0dd7f497.png" />
+    <meta property="og:image:secure_url" content="https://hanos.io/assets/aistudio/Screenshot_20261022_231441_Photos_0dd7f497.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1080" />
+    <meta property="og:image:height" content="1080" />
+    <meta property="og:image:alt" content="Hanath Mahdi Updih - Founder &amp; Chief Architect of hanAuth and hanOS" />
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:title" content="hanAuth | Developer API Key &amp; Identity Infrastructure" />
-    <meta property="twitter:description" content="High-performance API key management built on hanOS by Founder Hanath Mahdi Updih." />
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@hanOS_dev" />
+    <meta name="twitter:creator" content="@hanOS_dev" />
+    <meta name="twitter:title" content="hanAuth security and managment API keys" />
+    <meta name="twitter:description" content="High-performance developer identity gateway, API key management, zero-knowledge secret hashing founded by Hanath Mahdi Updih for hanOS." />
+    <meta name="twitter:image" content="https://hanos.io/assets/aistudio/Screenshot_20261022_231441_Photos_0dd7f497.png" />
+    <meta name="twitter:image:alt" content="Hanath Mahdi Updih - Founder of hanAuth and hanOS" />
 
-    <!-- Schema.org JSON-LD Structured Data for Google Search Console & Indexing -->
+    <!-- Schema.org JSON-LD Structured Data for Google Search Card & Knowledge Graph -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "hanAuth",
-        "operatingSystem": "All",
-        "applicationCategory": "DeveloperApplication",
-        "offers": {
-          "@type": "Offer",
-          "price": "0",
-          "priceCurrency": "USD"
-        },
-        "author": {
-          "@type": "Person",
-          "name": "Hanath Mahdi Updih",
-          "jobTitle": "Founder & Chief Architect",
-          "worksFor": {
+        "@graph": [
+          {
+            "@type": "Person",
+            "@id": "https://hanos.io/#founder",
+            "name": "Hanath Mahdi Updih",
+            "alternateName": ["Hanath Updih", "Hanath Mahdi"],
+            "jobTitle": "Founder & Chief Architect",
+            "image": "https://hanos.io/assets/aistudio/Screenshot_20261022_231441_Photos_0dd7f497.png",
+            "description": "Founder & Chief Architect of hanAuth, hanOS, hanFiles, hanBusiness, and Somaliland Plates.",
+            "worksFor": {
+              "@type": "Organization",
+              "@id": "https://hanos.io/#organization",
+              "name": "hanOS",
+              "url": "https://hanos.io"
+            },
+            "sameAs": [
+              "https://hanos.io",
+              "https://hanos.io/apps"
+            ],
+            "knowsAbout": [
+              "API Key Security",
+              "Developer Identity Management",
+              "hanOS Platform Architecture",
+              "hanFiles",
+              "hanBusiness",
+              "Somaliland Plates"
+            ]
+          },
+          {
             "@type": "Organization",
-            "name": "hanOS"
+            "@id": "https://hanos.io/#organization",
+            "name": "hanOS",
+            "alternateName": "hanOS Platform Suite",
+            "url": "https://hanos.io",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://hanos.io/assets/aistudio/Screenshot_20261022_231441_Photos_0dd7f497.png"
+            },
+            "founder": {
+              "@id": "https://hanos.io/#founder"
+            }
+          },
+          {
+            "@type": "SoftwareApplication",
+            "@id": "https://hanos.io/#hanauth",
+            "name": "hanAuth",
+            "alternateName": "hanAuth security and managment API keys",
+            "operatingSystem": "All",
+            "applicationCategory": "SecurityApplication",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD"
+            },
+            "image": "https://hanos.io/assets/aistudio/Screenshot_20261022_231441_Photos_0dd7f497.png",
+            "author": {
+              "@id": "https://hanos.io/#founder"
+            },
+            "creator": {
+              "@id": "https://hanos.io/#founder"
+            },
+            "publisher": {
+              "@id": "https://hanos.io/#organization"
+            },
+            "description": "High-performance developer identity gateway, API key management, zero-knowledge secret hashing, and instant key revocation platform engineered by Hanath Mahdi Updih for the hanOS platform suite."
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://hanos.io/#website",
+            "url": "https://hanos.io",
+            "name": "hanAuth security and managment API keys",
+            "author": {
+              "@id": "https://hanos.io/#founder"
+            },
+            "publisher": {
+              "@id": "https://hanos.io/#organization"
+            }
           }
-        },
-        "publisher": {
-          "@type": "Organization",
-          "name": "hanOS",
-          "url": "https://hanos.io"
-        },
-        "description": "Developer API key management and identity infrastructure platform."
+        ]
       }
     </script>
   </head>

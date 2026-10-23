@@ -108,17 +108,41 @@ api_key = response.json().get("api_key")`
       />
 
       {/* Top Header Navbar */}
-      <header className="relative z-20 w-full max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-        <HanAuthLogo size="md" className="cursor-pointer" onClick={() => onNavigate('landing')} />
+      <header className="relative z-20 w-full max-w-7xl mx-auto px-6 h-20 flex items-center justify-between gap-4">
+        <div className="flex items-center gap-4">
+          <HanAuthLogo size="md" className="cursor-pointer" onClick={() => onNavigate('landing')} />
 
-        <div className="hidden md:flex items-center gap-6 text-sm text-slate-300 font-medium">
+          {/* Founder Header Badge Pill with Photo */}
+          <button
+            onClick={() => onNavigate('apps')}
+            className="flex items-center gap-2.5 px-3 py-1.5 rounded-full bg-slate-900/90 hover:bg-slate-800 border border-slate-700/80 hover:border-blue-500/60 transition-all group shadow-sm text-left cursor-pointer"
+            title="Founder & Chief Architect: Hanath Mahdi Updih - hanOS Suite"
+          >
+            <div className="relative w-8 h-8 rounded-full overflow-hidden ring-2 ring-blue-500/70 shadow-md shrink-0">
+              <img
+                src="/assets/aistudio/Screenshot_20261022_231441_Photos_0dd7f497.png"
+                alt="Hanath Mahdi Updih - Founder"
+                className="w-full h-full object-cover object-[center_38%] scale-110 group-hover:scale-125 transition-transform duration-300"
+              />
+              <span className="absolute bottom-0 right-0 w-2 h-2 bg-emerald-500 border border-slate-950 rounded-full" />
+            </div>
+            <div className="flex flex-col leading-tight hidden sm:flex">
+              <span className="text-[9px] uppercase tracking-wider font-bold text-blue-400">Founder</span>
+              <span className="text-xs text-white font-medium group-hover:text-blue-300 transition-colors whitespace-nowrap">
+                Hanath Mahdi Updih
+              </span>
+            </div>
+          </button>
+        </div>
+
+        <div className="hidden lg:flex items-center gap-6 text-sm text-slate-300 font-medium">
           <a href="#features" className="hover:text-blue-400 transition-colors">Features</a>
           <a href="#docs" className="hover:text-blue-400 transition-colors">API Docs</a>
-          <button onClick={() => onNavigate('apps')} className="hover:text-blue-400 transition-colors font-semibold text-blue-400 flex items-center gap-1.5">
+          <button onClick={() => onNavigate('apps')} className="hover:text-blue-400 transition-colors font-semibold text-blue-400 flex items-center gap-1.5 cursor-pointer">
             <Sparkles className="w-3.5 h-3.5" />
             <span>hanOS Apps</span>
           </button>
-          <button onClick={() => onNavigate('privacy')} className="hover:text-blue-400 transition-colors text-slate-400">
+          <button onClick={() => onNavigate('privacy')} className="hover:text-blue-400 transition-colors text-slate-400 cursor-pointer">
             Privacy Policy
           </button>
         </div>
@@ -126,13 +150,13 @@ api_key = response.json().get("api_key")`
         <div className="flex items-center gap-3">
           <button
             onClick={() => onNavigate('login')}
-            className="px-4 py-2 text-sm font-semibold text-slate-300 hover:text-white transition-colors"
+            className="px-3.5 py-2 text-sm font-semibold text-slate-300 hover:text-white transition-colors cursor-pointer"
           >
             Sign In
           </button>
           <button
             onClick={() => onNavigate('register')}
-            className="px-4 py-2 text-sm font-semibold text-white bg-blue-600 hover:bg-blue-500 rounded-xl shadow-lg shadow-blue-600/30 transition-all transform hover:-translate-y-0.5 flex items-center gap-2"
+            className="px-4 py-2 text-sm font-semibold text-white bg-blue-600 hover:bg-blue-500 rounded-xl shadow-lg shadow-blue-600/30 transition-all transform hover:-translate-y-0.5 flex items-center gap-2 cursor-pointer"
           >
             Create Account
             <ArrowRight className="w-4 h-4" />
@@ -299,17 +323,48 @@ api_key = response.json().get("api_key")`
           </div>
         </motion.div>
 
-        {/* Section: Applications Created by hanOS */}
+        {/* Section: Applications Created by hanOS & Founder Spotlight */}
         <div className="mt-28 w-full max-w-6xl">
-          <div className="text-center mb-12">
+          <div className="text-center mb-8">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-950/80 border border-blue-800/60 text-xs text-blue-300 font-semibold mb-3">
               <Sparkles className="w-3.5 h-3.5" />
-              <span>Products Ecosystem</span>
+              <span>Products Ecosystem &amp; Leadership</span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-white">Applications Created by hanOS</h2>
             <p className="text-slate-400 text-sm mt-2 max-w-xl mx-auto">
               Engineered and led by Founder <strong className="text-white">Hanath Mahdi Updih</strong>. High-performance software applications running on the hanOS cloud infrastructure.
             </p>
+          </div>
+
+          {/* Founder Profile Spotlight Card */}
+          <div className="mb-10 p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-slate-900/90 via-indigo-950/40 to-slate-900/90 border border-indigo-500/30 backdrop-blur-xl shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6 text-left">
+            <div className="flex items-center gap-5">
+              <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden ring-4 ring-indigo-500/30 border-2 border-indigo-400/60 shadow-2xl shadow-indigo-500/25 shrink-0 bg-slate-900 group">
+                <img 
+                  src="/assets/aistudio/Screenshot_20261022_231441_Photos_0dd7f497.png" 
+                  alt="Hanath Mahdi Updih - Founder & Chief Architect"
+                  className="w-full h-full object-cover object-[center_38%] scale-110 group-hover:scale-115 transition-transform duration-300"
+                />
+                <span className="absolute bottom-1 right-1 w-3.5 h-3.5 rounded-full bg-emerald-500 border-2 border-slate-950 shadow-sm" title="Active & Verified Founder" />
+              </div>
+              <div>
+                <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-md bg-indigo-500/20 text-indigo-300 text-[11px] font-mono font-semibold uppercase tracking-wider mb-1">
+                  Founder &amp; Chief Architect
+                </div>
+                <h3 className="text-2xl font-bold text-white">Hanath Mahdi Updih</h3>
+                <p className="text-slate-300 text-xs sm:text-sm mt-1 max-w-xl">
+                  Founder of <strong className="text-white">hanOS</strong> and creator of the ecosystem: <span className="text-blue-400 font-medium">hanFiles</span>, <span className="text-purple-400 font-medium">hanBusiness</span>, <span className="text-emerald-400 font-medium">Somaliland Plates</span>, and <span className="text-indigo-400 font-medium">hanAuth</span>.
+                </p>
+              </div>
+            </div>
+            
+            <button
+              onClick={() => onNavigate('apps')}
+              className="shrink-0 px-5 py-3 rounded-xl bg-slate-950/80 hover:bg-slate-800 border border-indigo-500/40 text-xs font-semibold text-indigo-200 hover:text-white transition-all flex items-center gap-2 shadow-sm cursor-pointer"
+            >
+              <span>Explore hanOS Ecosystem</span>
+              <ArrowRight className="w-4 h-4 text-indigo-400" />
+            </button>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

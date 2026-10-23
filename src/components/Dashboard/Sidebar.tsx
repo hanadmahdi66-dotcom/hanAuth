@@ -99,12 +99,22 @@ export const Sidebar: React.FC<SidebarProps> = ({
       {/* Bottom Profile & hanOS branding */}
       <div className="p-4 border-t border-slate-800/80 space-y-2.5 bg-slate-950">
         
-        {/* Founder Tag */}
-        <div className="p-2.5 rounded-xl bg-slate-900/80 border border-indigo-500/20 text-xs text-slate-300 flex items-center gap-2">
-          <Cpu className="w-3.5 h-3.5 text-indigo-400 shrink-0" />
-          <div className="truncate">
-            <span className="text-[10px] text-slate-400 block">Founder of hanOS</span>
-            <span className="font-semibold text-white">Hanath Mahdi Updih</span>
+        {/* Founder Tag with Photo */}
+        <div 
+          onClick={() => onSelectTab('apps')}
+          className="p-2.5 rounded-xl bg-slate-900/80 border border-indigo-500/30 text-xs text-slate-300 flex items-center gap-2.5 hover:border-indigo-400/60 transition-all cursor-pointer group"
+          title="View hanOS Apps Ecosystem & Founder"
+        >
+          <div className="relative w-8 h-8 rounded-lg overflow-hidden ring-2 ring-indigo-500/40 shrink-0 bg-slate-950">
+            <img 
+              src="/assets/aistudio/Screenshot_20261022_231441_Photos_0dd7f497.png" 
+              alt="Hanath Mahdi Updih"
+              className="w-full h-full object-cover object-[center_38%] scale-110"
+            />
+          </div>
+          <div className="truncate flex-1 text-left">
+            <span className="text-[10px] text-indigo-300 font-mono block">Founder of hanOS</span>
+            <span className="font-semibold text-white group-hover:text-indigo-200 transition-colors">Hanath Mahdi Updih</span>
           </div>
         </div>
 

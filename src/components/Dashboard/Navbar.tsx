@@ -52,6 +52,25 @@ export const Navbar: React.FC<NavbarProps> = ({
           <span className="text-white font-semibold uppercase">{environment}</span>
         </button>
 
+        {/* Founder Pill in Header */}
+        <div 
+          className="flex items-center gap-2 px-2.5 py-1 rounded-full bg-slate-900 border border-slate-800 text-xs shadow-sm hover:border-slate-700 transition-colors"
+          title="Founder & Chief Architect: Hanath Mahdi Updih (hanOS)"
+        >
+          <div className="relative w-6 h-6 rounded-full overflow-hidden ring-1 ring-blue-500/70 shrink-0">
+            <img 
+              src="/assets/aistudio/Screenshot_20261022_231441_Photos_0dd7f497.png" 
+              alt="Hanath Mahdi Updih" 
+              className="w-full h-full object-cover object-[center_38%] scale-110" 
+            />
+            <span className="absolute bottom-0 right-0 w-1.5 h-1.5 bg-emerald-500 border border-slate-950 rounded-full" />
+          </div>
+          <div className="hidden xl:flex flex-col text-left leading-tight">
+            <span className="text-[8px] text-blue-400 font-bold uppercase tracking-wider">Founder</span>
+            <span className="text-[11px] text-slate-200 font-medium">Hanath Mahdi Updih</span>
+          </div>
+        </div>
+
         {/* Backend Endpoint Indicator */}
         <div className="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-900/60 border border-slate-800 text-xs text-slate-400">
           <Server className="w-3.5 h-3.5 text-blue-400" />

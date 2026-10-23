@@ -32,8 +32,19 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 <HanOSLogo size="md" variant="full" />
               </div>
 
-              {/* Founder Tag */}
-              <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-indigo-950/60 border border-indigo-800/50 text-indigo-300 text-xs font-medium">
+              {/* Founder Tag with Photo */}
+              <div 
+                onClick={() => onNavigate?.('apps')}
+                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-indigo-950/60 border border-indigo-800/50 text-indigo-300 text-xs font-medium cursor-pointer hover:border-indigo-600 transition-colors"
+                title="View Founder & hanOS Suite"
+              >
+                <div className="w-5 h-5 rounded-full overflow-hidden ring-1 ring-indigo-400/50 shrink-0 bg-slate-900">
+                  <img 
+                    src="/assets/aistudio/Screenshot_20261022_231441_Photos_0dd7f497.png" 
+                    alt="Hanath Mahdi Updih"
+                    className="w-full h-full object-cover object-[center_38%] scale-110"
+                  />
+                </div>
                 <span>Founder: <strong className="text-white">Hanath Mahdi Updih</strong></span>
               </div>
             </div>

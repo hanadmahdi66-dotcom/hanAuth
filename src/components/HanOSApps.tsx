@@ -154,15 +154,20 @@ export const HanOSApps: React.FC<HanOSAppsProps> = ({ onNavigate }) => {
           className="p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-slate-900 via-indigo-950/50 to-slate-900 border border-indigo-500/30 backdrop-blur-xl shadow-2xl mb-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-6"
         >
           <div className="flex items-center gap-5">
-            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 via-indigo-500 to-purple-600 flex items-center justify-center text-white shadow-xl shadow-indigo-500/25 shrink-0 ring-4 ring-indigo-500/20">
-              <User className="w-8 h-8" />
+            <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden ring-4 ring-indigo-500/30 border-2 border-indigo-400/60 shadow-2xl shadow-indigo-500/30 shrink-0 bg-slate-900 group">
+              <img 
+                src="/assets/aistudio/Screenshot_20261022_231441_Photos_0dd7f497.png" 
+                alt="Hanath Mahdi Updih - Founder of hanOS"
+                className="w-full h-full object-cover object-[center_38%] scale-110 group-hover:scale-115 transition-transform duration-300"
+              />
+              <span className="absolute bottom-1 right-1 w-3.5 h-3.5 rounded-full bg-emerald-500 border-2 border-slate-950 shadow-sm" title="Active & Verified Founder" />
             </div>
             <div>
               <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-md bg-indigo-500/20 text-indigo-300 text-[11px] font-mono font-semibold uppercase tracking-wider mb-1">
                 Founder &amp; Chief Architect
               </div>
               <h2 className="text-2xl font-bold text-white">Hanath Mahdi Updih</h2>
-              <p className="text-slate-300 text-sm mt-1">
+              <p className="text-slate-300 text-sm mt-1 max-w-xl">
                 Creator of hanOS and its flagship applications: <span className="text-blue-400 font-semibold">hanFiles</span>, <span className="text-purple-400 font-semibold">hanBusiness</span>, <span className="text-emerald-400 font-semibold">Somaliland Plates</span>, and <span className="text-indigo-400 font-semibold">hanAuth</span>.
               </p>
             </div>
